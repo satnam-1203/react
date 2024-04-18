@@ -8,7 +8,10 @@ function App() {
     const handleCreateCookie = async () => {
         try {
             // Send a GET request to the /create-cookie route
-            const response = await fetch('https://test-api-66wh.onrender.com/create-cookie');
+            const response = await fetch('https://test-api-66wh.onrender.com/create-cookie', {
+    credentials: 'include',
+});
+
             // Parse the response as text
             const data = await response.text();
             // Update the state with the response data
@@ -24,7 +27,10 @@ function App() {
     const handleGetCookie = async () => {
         try {
             // Send a GET request to the /get-cookie route
-            const response = await fetch('https://test-api-66wh.onrender.com/get-cookie');
+           const response = await fetch('https://test-api-66wh.onrender.com/get-cookie', {
+    credentials: 'include',
+});
+
             // Parse the response as text
             const data = await response.text();
             // Update the state with the response data
