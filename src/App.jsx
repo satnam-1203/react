@@ -6,7 +6,6 @@ import Profile from "./Profile"
 function App() {
   return (
     <Router>
-      <ScrollToTop />
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<Profile />} />
