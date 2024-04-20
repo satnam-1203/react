@@ -11,7 +11,7 @@ const Profile = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const response = await axios.get('https://grcportal-1.onrender.com/profile', { withCredentials: true });
+        const response = await axios.get('https://test-api-66wh.onrender.com/profile', { withCredentials: true });
         setUser(response.data.user);
       } catch (error) {
         console.error('Profile error:', error.response.data.message);
