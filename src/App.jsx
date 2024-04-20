@@ -1,13 +1,13 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Login from "./Login";
+import LoginForm  from "./Login";
 import Profile from "./Profile"
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<LoginForm  />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
     </Router>
