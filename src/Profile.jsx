@@ -2,11 +2,11 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNaviagte } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Profile = () => {
   const [user, setUser] = useState(null);
-  const naviagte = useNaviagte();
+  const naviagte = useNavigate();
 
   useEffect(() => {
     const fetchProfile = async () => {
