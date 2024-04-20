@@ -1,58 +1,44 @@
+// LoginForm.js
+
 import React, { useState } from 'react';
+import axios from 'axios';
 
-function App() {
-    // State variable to store response data
-    const [responseData, setResponseData] = useState('');
+const LoginForm = () => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
-    // Function to handle creating a cookie
-    const handleCreateCookie = async () => {
-        try {
-            // Send a GET request to the /create-cookie route
-            const response = await fetch('https://test-api-66wh.onrender.com/create-cookie', {
-    credentials: 'include',
-});
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post('https://test-api-66wh.onrender.com/login', {
+        username,
+        password
+      });
+      console.log(response.data);
+      // Do something after successful login
+    } catch (error) {
+      console.error('Login error:', error.response.data.message);
+      // Handle login error
+    }
+  };
 
-            // Parse the response as text
-            const data = await response.text();
-            // Update the state with the response data
-            setResponseData(data);
-        } catch (error) {
-            // Handle errors
-            console.error('Error creating cookie:', error);
-            setResponseData('Failed to create cookie.');
-        }
-    };
+  return (
+    <form onSubmit={handleLogin}>
+      <input 
+        type="text" 
+        placeholder="Username" 
+        value={username} 
+        onChange={(e) => setUsername(e.target.value)} 
+      />
+      <input 
+        type="password" 
+        placeholder="Password" 
+        value={password} 
+        onChange={(e) => setPassword(e.target.value)} 
+      />
+      <button type="submit">Login</button>
+    </form>
+  );
+};
 
-    // Function to handle getting the cookie data
-    const handleGetCookie = async () => {
-        try {
-            // Send a GET request to the /get-cookie route
-           const response = await fetch('https://test-api-66wh.onrender.com/get-cookie', {
-    credentials: 'include',
-});
-
-            // Parse the response as text
-            const data = await response.text();
-            // Update the state with the response data
-            setResponseData(data);
-        } catch (error) {
-            // Handle errors
-            console.error('Error getting cookie:', error);
-            setResponseData('Failed to get cookie data.');
-        }
-    };
-
-    return (
-        <div>
-            <h1>Session and Cookie Demo</h1>
-            {/* Button to create a cookie */}
-            <button onClick={handleCreateCookie}>Create Cookie</button>
-            {/* Button to get the cookie data */}
-            <button onClick={handleGetCookie}>Get Cookie Data</button>
-            {/* Display the response data */}
-            <p>{responseData}</p>
-        </div>
-    );
-}
-
-export default App;
+export default LoginForm;
