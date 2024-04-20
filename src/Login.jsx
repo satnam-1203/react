@@ -2,12 +2,12 @@
 
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom'; // Import useHistory hook for redirection
+import { useNaviagte } from 'react-router-dom'; // Import useHistory hook for redirection
 
 const LoginForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const history = useHistory(); // Initialize useHistory hook
+  const naviagte = useNaviagte(); // Initialize useHistory hook
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -18,7 +18,7 @@ const LoginForm = () => {
       });
       console.log(response.data);
       // Redirect to profile page upon successful login
-      history.push('/profile'); // Redirect to profile page
+      naviagte('/profile'); // Redirect to profile page
     } catch (error) {
       console.error('Login error:', error.response.data.message);
       // Handle login error
