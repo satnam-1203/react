@@ -2,12 +2,12 @@
 
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNaviagte } from 'react-router-dom'; // Import useHistory hook for redirection
+import { useNavigate } from 'react-router-dom'; // Import useHistory hook for redirection
 
 const LoginForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const naviagte = useNaviagte(); // Initialize useHistory hook
+  const naviagte = useNavigate(); // Initialize useHistory hook
 
   const handleLogin = async (e) => {
     e.preventDefault();
