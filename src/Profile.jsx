@@ -20,7 +20,7 @@ const Profile = () => {
     };
 
     fetchProfile();
-  }, [useNavigate]);
+  }, [naviagte]);
 
   return (
     <div>
