@@ -2,11 +2,11 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
+import { useNaviagte } from 'react-router-dom';
 
 const Profile = () => {
   const [user, setUser] = useState(null);
-  const history = useHistory();
+  const naviagte = useNaviagte();
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -15,7 +15,7 @@ const Profile = () => {
         setUser(response.data.user);
       } catch (error) {
         console.error('Profile error:', error.response.data.message);
-        history.push('/'); // Redirect to login page if not authenticated
+        naviagte('/'); // Redirect to login page if not authenticated
       }
     };
 
