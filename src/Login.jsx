@@ -2,20 +2,23 @@
 
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom'; // Import useHistory hook for redirection
 
 const LoginForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const history = useHistory(); // Initialize useHistory hook
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://test-api-66wh.onrender.com/login', {
+      const response = await axios.post('https://grcportal-1.onrender.com/login', { // Update server URL
         username,
         password
       });
       console.log(response.data);
-      // Do something after successful login
+      // Redirect to profile page upon successful login
+      history.push('/profile'); // Redirect to profile page
     } catch (error) {
       console.error('Login error:', error.response.data.message);
       // Handle login error
