@@ -12,7 +12,7 @@ const LoginForm = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://grcportal-1.onrender.com/login', { // Update server URL
+      const response = await axios.post('https://test-api-66wh.onrender.com/login', { // Update server URL
         username,
         password
       });
